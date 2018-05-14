@@ -35,6 +35,14 @@ public class DirectoryInfo
   }
   public String getFileExtension()
   {
-    return ".java";
+    switch (language)
+    {
+      case "java" :
+        return ".java";
+      case "cpp" :
+        return ".h";
+      default :
+        return "." + language;
+    }
   }
 }
