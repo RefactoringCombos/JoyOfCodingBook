@@ -23,7 +23,7 @@ public class TestLambda
       /* end */
     }
     {
-      /* Introduce.Lambda.Example.3  */
+      /* Introduce.Lambda.Example.3 */
       // Introduce Lambda parameter
       int eat = ((Function1<Integer, Integer>) (c) -> c - (1 / 2) * c).call(cake);
       /* end */

@@ -1,0 +1,4 @@
+# Introduce Lambda
+found: Introduce.Lambda.Example.1
+found: Introduce.Lambda.Example.2
+found: Introduce.Lambda.Example.3

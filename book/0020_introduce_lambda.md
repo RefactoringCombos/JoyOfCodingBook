@@ -1,25 +1,9 @@
 # Introduce Lambda
+    
+    <codeblock Introduce.Lambda.Example.1 />
+    <codeblock Introduce.Lambda.Example.2 />
+    <codeblock Introduce.Lambda.Example.3 />
 
-
-<codeblock Introduce.Lambda.Example.1 />
-<codeblock Introduce.Lambda.Example.2 />
-<codeblock Introduce.Lambda.Example.3 />
-
-```
-//Original
-int eat = cake - (1/2) * cake;  
-```
-
-```
-// Introduce Lambda
-int eat = (() ->  cake - (1/2) * cake )();
-```
- 
-```
-// Intruduce Lambda parameter
-int eat = ((c) ->  c - (1/2) * c)(cake);
-
-```
 
 ## Decription 
 
