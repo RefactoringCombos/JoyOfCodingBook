@@ -41,6 +41,8 @@ public class DirectoryInfo
         return ".java";
       case "cpp" :
         return ".h";
+      case "python" :
+        return ".py";
       default :
         return "." + language;
     }

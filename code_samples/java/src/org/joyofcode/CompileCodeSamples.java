@@ -2,6 +2,8 @@ package org.joyofcode;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -9,6 +11,7 @@ import java.util.regex.Pattern;
 
 import org.lambda.functions.Function1;
 
+import com.spun.util.StringUtils;
 import com.spun.util.io.FileUtils;
 
 public class CompileCodeSamples
@@ -83,16 +86,44 @@ public class CompileCodeSamples
   public static Map<String, String> findTagsInCodeFile(String text)
   {
     HashMap<String, String> tags = new HashMap<>();
-    String pattern1 = "(\\/\\* ((?:[\\w\\d.]*)) \\*)\\/((.*?))" + "(\\/\\* end \\*\\/)";
+    String pattern1 = "(\\/\\* ((?:[\\w\\d.]*)) \\*)\\/((.*?))" + "((# )?\\/\\* end \\*\\/)";
     Pattern p = Pattern.compile(pattern1, Pattern.MULTILINE | Pattern.DOTALL);
     Matcher m = p.matcher(text);
     while (m.find())
     {
       String tag = m.group(2);
       String code = m.group(3);
-      tags.put(tag, code);
+      tags.put(tag, cleanBlankLines(code));
     }
     return tags;
+  }
+  private static String cleanBlankLines(String code)
+  {
+    ArrayList<String> lines = new ArrayList<>(Arrays.asList(code.split("\n")));
+    while (!lines.isEmpty())
+    {
+      if (StringUtils.isEmpty(lines.get(0)))
+      {
+        lines.remove(0);
+      }
+      else
+      {
+        break;
+      }
+    }
+    while (!lines.isEmpty())
+    {
+      int last = lines.size() - 1;
+      if (StringUtils.isEmpty(lines.get(last)))
+      {
+        lines.remove(last);
+      }
+      else
+      {
+        break;
+      }
+    }
+    return String.join("\n", lines);
   }
   public static String replaceAll(String text, String regex, Function1<Matcher, String> replacer)
   {
