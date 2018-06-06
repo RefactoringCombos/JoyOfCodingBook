@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.lambda.functions.Function1;
 
@@ -93,7 +96,7 @@ public class CompileCodeSamples
     {
       String tag = m.group(2);
       String code = m.group(3);
-      tags.put(tag, cleanBlankLines(code));
+      tags.put(tag, cleanIndentation(cleanBlankLines(code)));
     }
     return tags;
   }
@@ -136,5 +139,13 @@ public class CompileCodeSamples
     }
     matcher.appendTail(result);
     return result.toString();
+  }
+  public static String cleanIndentation(String text)
+  {
+    String[] lines = text.split("\n");
+    Optional<Integer> min = Stream.of(lines).map((String l) -> l.length() - l.replaceAll("^\\s+", "").length())
+        .min((a, b) -> a - b);
+    Stream<String> trimed = Stream.of(lines).map((String l) -> l.substring(min.orElse(0)));
+    return trimed.collect(Collectors.joining("\n"));
   }
 }

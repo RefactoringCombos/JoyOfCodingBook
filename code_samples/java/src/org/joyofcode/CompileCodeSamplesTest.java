@@ -30,4 +30,11 @@ public class CompileCodeSamplesTest
     String text = FileUtils.readFile("src/org/joyofcode/samples/tests/TestLambda.java");
     Approvals.verify(CompileCodeSamples.findTagsInCodeFile(text));
   }
+  @Test
+  public void testIndentation() throws Exception
+  {
+    String text = "                //Original\n" + "                int eat = cake - (1 / 2) * cake;\n"
+        + "                    // more indented 4";
+    Approvals.verify(CompileCodeSamples.cleanIndentation(text));
+  }
 }

@@ -1,6 +1,6 @@
-Introduce.Lambda.Example.1 :       //Original
-      int eat = cake - (1 / 2) * cake; 
-Introduce.Lambda.Example.2 :       // Introduce Lambda
-      int eat = ((Function0<Integer>) () -> cake - (1 / 2) * cake).call(); 
-Introduce.Lambda.Example.3 :       // Introduce Lambda parameter
-      int eat = ((Function1<Integer, Integer>) (c) -> c - (1 / 2) * c).call(cake); 
+Introduce.Lambda.Example.1 : //Original
+int eat = cake - (1 / 2) * cake; 
+Introduce.Lambda.Example.2 : // Introduce Lambda
+int eat = ((Function0<Integer>) () -> cake - (1 / 2) * cake).call(); 
+Introduce.Lambda.Example.3 : // Introduce Lambda parameter
+int eat = ((Function1<Integer, Integer>) (c) -> c - (1 / 2) * c).call(cake); 
