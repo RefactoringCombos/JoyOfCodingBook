@@ -3,3 +3,10 @@ _book
 bin
 joy_of_code.*
 node_modules/
+build/
+debug/
+.user
+.suo
+
+.vs/
+packages/
