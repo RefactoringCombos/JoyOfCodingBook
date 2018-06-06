@@ -14,7 +14,7 @@ public class CompileCodeSamplesTest
   public void test() throws Throwable
   {
     String base = "/Users/llewellyn/Github/JoyOfCodingBook";
-    String[] languages = {"java", "cpp", "python", "javascript"};
+    String[] languages = {"java", "cpp", "python", "javascript", "csharp"};
     CompileCodeSamples.now(base, languages, "joy_of_code.%s");
   }
   @Test

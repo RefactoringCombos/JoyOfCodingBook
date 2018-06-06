@@ -45,6 +45,8 @@ public class DirectoryInfo
         return ".py";
       case "javascript" :
         return ".js";
+      case "csharp" :
+        return ".cs";
       default :
         return "." + language;
     }
